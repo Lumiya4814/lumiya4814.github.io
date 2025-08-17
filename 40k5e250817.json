@@ -1,0 +1,1642 @@
+ {
+	"config": {
+		"trackHighestDivision": true
+	},
+	"appVersion": 2,
+	"disallowMultipleFactions": true,
+	"colors": {
+		"light": {
+			"primary": "#841912",
+			"background": "#a58650",
+			"pageBackground": "#fffffe",
+			"buttonBackground": "#e2ded3",
+			"primaryBorder": "#841912",
+			"primaryBackgroundColor": "#fffffe"
+		},
+		"dark": {
+			"primary": "#fffffe",
+			"background": "#814143",
+			"pageBackground": "#3b1d1e",
+			"buttonBackground": "#a58650",
+			"primaryBorder": "#841912",
+			"primaryBackgroundColor": "#841912"
+		}
+	},
+	"credit": ["Test Framework"],
+	"game": "Warhammer 40,000 5th Edition",
+	"toggles": [],
+	"stats": [
+		{
+			"name": "WS",
+			"abbreviation": "WS"
+		},
+		{
+			"name": "BS",
+			"abbreviation": "BS"
+		},
+		{
+			"name": "S",
+			"abbreviation": "S"
+		},
+		{
+			"name": "T",
+			"abbreviation": "T"
+		},
+		{
+			"name": "W",
+			"abbreviation": "W"
+		},
+		{
+			"name": "I",
+			"abbreviation": "I"
+		},
+		{
+			"name": "A",
+			"abbreviation": "A"
+		},
+		{
+			"name": "Ld",
+			"abbreviation": "Ld"
+		},
+		{
+			"name": "Sv",
+			"abbreviation": "Sv",
+			"trail": "+"
+		},
+		{
+			"name": "Front",
+			"abbreviation": "Front"
+		},
+		{
+			"name": "Side",
+			"abbreviation": "Side"
+		},
+		{
+			"name": "Rear",
+			"abbreviation": "Rear"
+		}
+	],
+	"dataTableKeys": [
+		"units"
+	],
+	"limits": [],
+	"counts": [],
+	"calculations": [],
+	"validations": [],
+	"leaderConfig": {
+		"elementPropertyName": "units",
+		"usesProperty": "rank"
+	},
+	"additionalPrint": [],
+	"additionalDb": [],
+	"elements": [
+		{
+			"propertyName": "factions",
+			"label": "Faction",
+			"type": "faction",
+			"dataSource": "factions",
+			"children": [
+				{
+					"propertyName": "units",
+					"dataSource": "units",
+					"label": "Unit",
+					"type": "main",
+					"tierProperty": "rank",
+					"tierData": "ranks",
+					"canIncrement": true,
+					"tiers": [
+						{
+							"name": "HQ",
+							"rank": 1,
+							"maximumChildren": {
+                                "models": 1,
+								"transport": 0
+							}
+						},
+						{
+							"name": "Elites",
+							"rank": 2,
+							"maximumChildren": {
+                                "models": 1,
+								"transport": 0
+							}
+						},
+						{
+							"name": "Troops",
+							"rank": 3,
+							"maximumChildren": {
+                                "models": 1,
+								"transport": 0
+							}
+						},
+						{
+							"name": "Fast Attack",
+							"rank": 4,
+							"maximumChildren": {
+                                "models": 1,
+								"transport": 0
+							}
+						},
+						{
+							"name": "Heavy Support",
+							"rank": 5,
+							"maximumChildren": {
+                                "models": 1,
+								"transport": 0
+							}
+						}
+					],
+					"children": [
+                    {
+                        "propertyName": "wargear",
+                        "label": "Wargear",
+                        "type": "static",
+                        "dataSource": "gear"
+                    },
+                    {
+                        "propertyName": "options",
+                        "type": "checkbox",
+                        "dataSource": "gear"
+                    },
+                    {
+                        "propertyName": "specialRules",
+                        "label": "Special Rules",
+                        "type": "static",
+                        "dataSource": "keywords",
+                        "children": [
+                            {
+                                "label": "Special Rules",
+                                "propertyName": "specialRules",
+                                "type": "static",
+                                "dataSource": "keywords"
+                            }
+                        ]
+                    },
+                    {
+                            "singleKey": "models",
+							"dataSource": "models",
+							"propertyName": "models",
+							"label": "Model",
+							"type": "list",
+                            "children": [
+                                {
+							        "propertyName": "wargear",
+							        "label": "Wargear",
+                                    "type": "static",
+                                    "dataSource": "gear"
+                                },
+                                {
+                                    "propertyName": "options",
+                                    "type": "checkbox",
+                                    "dataSource": "gear"
+                                },
+                                {
+                                    "propertyName": "specialRules",
+                                    "label": "Special Rules",
+                                    "type": "static",
+                                    "dataSource": "keywords",
+                                    "children": [
+                                        {
+                                            "label": "Special Rules",
+                                            "propertyName": "specialRules",
+                                            "type": "static",
+                                            "dataSource": "keywords"
+                                        }
+                                    ]
+                                }
+                                    ]
+                    },
+						{
+							"propertyName": "transport",
+							"label": "Transport",
+							"type": "list",
+							"dataSource": "transports",
+							"children": [
+								{
+									"label": "Special Rules",
+									"propertyName": "specialRules",
+									"type": "static",
+									"dataSource": "keywords"
+								},
+								{
+									"propertyName": "options",
+									"type": "checkbox",
+									"dataSource": "gear"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"data": {
+		"factions": [
+			{
+				"name": "Orks"
+			},
+			{
+				"name": "Chaos Space Marines"
+			}
+		],
+		"ranks": [
+			{
+				"name": "HQ"
+			},
+			{
+				"name": "Elites"
+			},
+			{
+				"name": "Troops"
+			},
+			{
+				"name": "Fast Attack"
+			},
+			{
+				"name": "Heavy Support"
+			}
+		],
+		"units": [
+			{
+				"name": "Ghazghkull Thraka",
+				"points": 225,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "HQ"
+					}
+				],
+				"unique": true,
+				"ws": 6,
+				"bs": 2,
+				"s": 5,
+				"t": 5,
+				"w": 4,
+				"i": 4,
+				"a": 5,
+				"ld": 9,
+				"sv": 2,
+				"wargear": [
+					"Cybork Body",
+					"Bosspole",
+					"Mega Armour",
+					"Stikkbombz",
+					"Big Shoota",
+					"Adamantium Skull"
+				],
+				"specialRules": [
+					"Independent Character",
+					"Furious Charge",
+					"Mob Rule",
+					"Prophet of the Waaagh!"
+				],
+				"options": [
+
+				],
+				"increaseMaximumChildren": {
+                    "models": -1
+                }
+                
+			},
+			{
+				"name": "Mad Dok Grotsnik",
+				"points": 160,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "HQ"
+					}
+				],
+				"unique": true,
+				"ws": 5,
+				"bs": 2,
+				"s": 4,
+				"t": 5,
+				"w": 3,
+				"i": 3,
+				"a": 4,
+				"ld": 9,
+				"sv": 4,
+				"wargear": [
+					"Cybork Body",
+					"Power Klaw",
+					"'Urty Syringe'",
+					"Slugga",
+					"Dok's Tools"
+				],
+				"specialRules": [
+					"Independent Character",
+					"Furious Charge",
+					"Fearless",
+					"Waaagh!",
+					"One Scalpel Short of a Medpack"
+				],
+				"options": [
+
+				],
+				"increaseMaximumChildren": {
+                    "models": -1
+                }
+                
+			},
+			{
+				"name": "Wazdakka Gutsmek",
+				"points": 180,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "HQ"
+					}
+				],
+				"unique": true,
+				"ws": 5,
+				"bs": 2,
+				"s": 4,
+				"t": 5,
+				"w": 3,
+				"i": 3,
+				"a": 4,
+				"ld": 9,
+				"sv": 4,
+				"wargear": [
+					"Bike of the Aporkalypse",
+					"Power Klaw",
+					"Kustom Mega-Blasta",
+					"Slugga",
+					"Mek's Tools",
+					"Stikkbombz",
+					"Bosspole"
+				],
+				"specialRules": [
+					"Independent Character",
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+
+				],
+				"increaseMaximumChildren": {
+                    "models": -1
+                }
+                
+			},
+			{
+				"name": "Old Zogwort",
+				"points": 145,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "HQ"
+					}
+				],
+				"unique": true,
+				"ws": 4,
+				"bs": 0,
+				"s": 3,
+				"t": 5,
+				"w": 3,
+				"i": 2,
+				"a": 2,
+				"ld": 8,
+				"sv": 6,
+				"wargear": [
+					"Nest of Vipers"
+				],
+				"specialRules": [
+					"Independent Character",
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!",
+					"Psyker",
+					"Warphead",
+					"Zogwort's Curse"
+				],
+				"options": [
+
+				],
+				"increaseMaximumChildren": {
+                    "models": -1
+                }
+                
+			},
+			{
+				"name": "Weirdboy",
+				"unlimited": true,
+				"points": 145,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "HQ"
+					}
+				],
+				"unique": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 4,
+				"t": 4,
+				"w": 2,
+				"i": 3,
+				"a": 3,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+				],
+				"specialRules": [
+					"Independent Character",
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!",
+					"Psyker"
+				],
+				"options": [
+					{
+						"name": "Warphead",
+						"points": 30
+					}
+
+				],
+				"increaseMaximumChildren": {
+                    "models": -1
+                }
+                
+			},
+			{
+				"name": "Warboss",
+				"points": 60,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "HQ"
+					}
+				],
+				"unique": true,
+				"ws": 5,
+				"bs": 2,
+				"s": 5,
+				"t": 5,
+				"w": 3,
+				"i": 4,
+				"a": 4,
+				"ld": 9,
+				"sv": 6,
+				"wargear": [
+					"Stikkbombz",
+					"Choppa"
+				],
+				"specialRules": [
+					"Independent Character",
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Choppa",
+						"points": 0,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Big Choppa",
+						"points": 5,
+						"requireChooseOneKey": "a"
+					},
+                    {
+						"name": "Power Klaw",
+						"points": 25,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Slugga",
+						"points": 0,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shoota",
+						"points": 0,
+						"requireChooseOneKey": "b"
+					},
+                    {
+						"name": "Twin-linked Shoota",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shoota/Rokkit Kombi-Weapon",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shoota/Skorcha Kombi-Weapon",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+                    {
+						"name": "Mega Armour",
+						"points": 40,
+						"chooseOneKey": "c"
+					},
+					{
+						"name": "Warbike",
+						"points": 40,
+						"chooseOneKey": "c"
+					},
+					{
+						"name": "Ammo Runt",
+						"points": 3
+					},
+					{
+						"name": "Attack Squig",
+						"points": 15
+					},
+					{
+						"name": "Cybork Body",
+						"points": 10
+					},
+					{
+						"name": "Bosspole",
+						"points": 5
+					},
+					{
+						"name": "'Eavy Armour",
+						"points": 5
+					}
+
+				],
+				"increaseMaximumChildren": {
+                    "models": -1
+                }
+                
+			},
+			{
+				"name": "Big Mek",
+				"unlimited": true,
+				"points": 35,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "HQ"
+					}
+				],
+				"unique": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 4,
+				"t": 4,
+				"w": 2,
+				"i": 3,
+				"a": 3,
+				"ld": 8,
+				"sv": 6,
+				"wargear": [
+					"Mek's Tools"
+				],
+				"specialRules": [
+					"Independent Character",
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Choppa",
+						"points": 0,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Burna",
+						"points": 20,
+						"requireChooseOneKey": "a"
+					},
+                    {
+						"name": "Power Klaw",
+						"points": 25,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Slugga",
+						"points": 0,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shoota",
+						"points": 0,
+						"requireChooseOneKey": "b"
+					},
+                    {
+						"name": "Kustom Mega-Blasta",
+						"points": 15,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shoota/Rokkit Kombi-Weapon",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shoota/Skorcha Kombi-Weapon",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+                    {
+						"name": "Mega Armour",
+						"points": 40,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Warbike",
+						"points": 40,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Kustom Force Field",
+						"points": 50,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shokk Attack Gun",
+						"points": 60,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Ammo Runt",
+						"points": 3
+					},
+					{
+						"name": "Attack Squig",
+						"points": 15
+					},
+					{
+						"name": "Cybork Body",
+						"points": 10
+					},
+					{
+						"name": "Bosspole",
+						"points": 5
+					},
+					{
+						"name": "'Eavy Armour",
+						"points": 5
+					},
+					{
+						"name": "Grot Oilers",
+						"points": 5,
+						"increment": true,
+						"max": 3
+					}
+
+				],
+				"increaseMaximumChildren": {
+                    "models": -1
+                }
+                
+			},
+			{
+				"name": "Boyz",
+                "addsModels": true,
+				"points": 0,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "Troops"
+					}
+				],
+				"unlimited": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+					"Slugga",
+					"Choppa"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Stikkbombz",
+						"points": 1,
+						"scaleWithKeys": ["trooper"]
+					}
+				],
+                "increaseMaximumChildren": {
+                    "models": 29,
+					"transport": 1
+                }
+			},
+          {
+				"name": "Kommandos",
+                "addsModels": true,
+				"points": 0,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "Elites"
+					}
+				],
+				"unlimited": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!",
+                      "Move Through Cover",
+                      "Infiltrate"
+				],
+				"options": [
+					{
+						"name": "Stikkbombz",
+						"points": 1,
+						"scaleWithKeys": ["trooper"]
+					}
+				],
+                "increaseMaximumChildren": {
+                    "models": 14
+                }
+			},
+			{
+				"name": "Nobz",
+                "addsModels": true,
+				"points": 0,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "Elites"
+					}
+				],
+				"unlimited": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+					"Slugga",
+					"Choppa"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Stikkbombz",
+						"points": 1,
+						"scaleWithKeys": ["trooper"]
+					},
+					{
+						"name": "Nob Bikers",
+						"points": 25,
+						"scaleWithKeys": ["trooper"]
+					}
+				],
+                "increaseMaximumChildren": {
+                    "models": 9,
+					"transport": 1
+                }
+			},
+            {
+				"name": "Burna Boyz",
+                "addsModels": true,
+				"points": 0,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "Elites"
+					}
+				],
+				"unlimited": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+				],
+                "increaseMaximumChildren": {
+                    "models": 14
+                }
+			},
+          {
+				"name": "Lootas",
+                "addsModels": true,
+				"points": 0,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "Elites"
+					}
+				],
+				"unlimited": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+				],
+                "increaseMaximumChildren": {
+                    "models": 14
+                }
+			},
+			{
+				"name": "Meganobz",
+                "addsModels": true,
+				"points": 0,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "Elites"
+					}
+				],
+				"unlimited": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+					"Slugga",
+					"Choppa"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+				],
+                "increaseMaximumChildren": {
+                    "models": 9,
+					"transport": 1
+                }
+			},
+          {
+				"name": "Tankbustas",
+                "addsModels": true,
+				"points": 0,
+				"factions": [
+					{
+						"name": "Orks",
+						"rank": "Elites"
+					}
+				],
+				"unlimited": true,
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+                  {
+                    "name": "Bomb-Squigs",
+                    "max": 3,
+                    "increment": true,
+                    "points": 5
+                  }
+				],
+                "increaseMaximumChildren": {
+                    "models": 14                
+                }
+			}
+		],
+        "models":[
+            {
+				"name": "Ork Boy",
+				"points": 6,
+                "availableIn": [
+                    "Boyz"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Big Shoota",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Rokkit Launcha",
+						"points": 10,
+						"requireChooseOneKey": "b"
+					},
+                    {
+						"name": "Shoota",
+						"points": 0,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Slugga and Choppa",
+						"points": 0,
+						"requireChooseOneKey": "b"
+					}
+				]
+			},
+          {
+				"name": "Tankbusta",
+				"points": 15,
+                "availableIn": [
+                    "Tankbustas"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+                  "Rokkit Launcha",
+                  "Tankbusta Bombz"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!",
+                      "Glory Hogs"
+				],
+				"options": [
+    				{
+                        "name": "Tankhammer",
+                        "points": 0
+                      }
+						
+				]
+			},
+          {
+				"name": "Tankbusta Nob",
+				"points": 25,
+                "availableIn": [
+                    "Tankbustas"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 4,
+				"t": 4,
+				"w": 2,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+					"Tankbusta Bombz"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!",
+                      "Glory Hogs"
+				],
+				"options": [
+					{
+						"name": "Rokkit Launcha",
+						"points": 0,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Power Klaw",
+						"points": 25,
+						"requireChooseOneKey": "a"
+					},
+                    {
+						"name": "'Eavy Armour",
+						"points": 5
+					},
+                    {
+						"name": "Bosspole",
+						"points": 5
+					}
+				]
+			},
+          {
+				"name": "Burna Boy",
+				"points": 15,
+                "availableIn": [
+                    "Burna Boyz"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+                  "Burna"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+				]
+			},
+          {
+				"name": "Lootas",
+				"points": 15,
+                "availableIn": [
+                    "Lootas"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+                  "Deffgun"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+				]
+			},
+          {
+				"name": "Mek",
+				"points": 15,
+                "availableIn": [                    
+                      "Lootas",
+                      "Burna Boyz"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 3,
+				"t": 4,
+				"w": 1,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+                  "Deffgun"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [                  
+                    {
+                      "name": "Slugga and Choppa",
+                      "points": 0,
+                      "requireChooseOneKey": "a"
+                      
+                    },
+                  {
+                      "name": "Big Shoota",
+                      "points": 0,
+                      "requireChooseOneKey": "a"
+                      
+                  },
+                  {
+                      "name": "Rokkit Launcha",
+                      "points": 5,
+                      "requireChooseOneKey": "a"
+                      
+                  },
+                  {
+                    "name": "Grot Oiler",
+                    "points": 5
+                  }
+			]
+			},
+			{
+				"name": "Meganob",
+				"points": 40,
+                "availableIn": [
+                    "Meganobz"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 4,
+				"t": 4,
+				"w": 2,
+				"i": 3,
+				"a": 3,
+				"ld": 7,
+				"sv": 2,
+				"wargear": [
+					"Mega Armour",
+					"Stikkbombz"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Shoota/Rokkit Kombi-Weapon",
+						"points": 5,
+						"chooseOneKey": "b"
+					},
+					{
+						"name": "Shoota/Skorcha Kombi-Weapon",
+						"points": 10,
+						"chooseOneKey": "b"
+					}
+				]
+			},
+			{
+				"name": "Painboy",
+				"points": 50,
+                "availableIn": [
+                    "Nobz"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 4,
+				"t": 4,
+				"w": 2,
+				"i": 3,
+				"a": 3,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+					"Dok's Tools",
+					"'Urty Syringe"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Grot Orderly",
+						"points": 5
+                    },
+					{
+						"name": "Cybork Bodies",
+						"points": 5,
+						"scaleWithKeys": ["trooper"]
+					}
+				]
+			},
+            {
+				"name": "Boyz Nob",
+				"points": 16,
+                "availableIn": [
+                    "Boyz"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 4,
+				"t": 4,
+				"w": 2,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+					"Slugga",
+					"Choppa"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Slugga and Choppa",
+						"points": 0,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Big Choppa",
+						"points": 5,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Stikkbombz",
+						"points": 1
+					},
+					{
+						"name": "Power Klaw",
+						"points": 25,
+						"requireChooseOneKey": "a"
+					},
+                    {
+						"name": "'Eavy Armour",
+						"points": 5
+					},
+                    {
+						"name": "Bosspole",
+						"points": 5
+					}
+				]
+			},
+			{
+				"name": "Nob",
+				"points": 20,
+                "availableIn": [
+					"Nobz"
+                ],
+				"scaleKeys": ["trooper"],
+				"ws": 4,
+				"bs": 2,
+				"s": 4,
+				"t": 4,
+				"w": 2,
+				"i": 2,
+				"a": 2,
+				"ld": 7,
+				"sv": 6,
+				"wargear": [
+					"Slugga",
+					"Choppa"
+				],
+				"specialRules": [
+					"Furious Charge",
+					"Mob Rule",
+					"Waaagh!"
+				],
+				"options": [
+					{
+						"name": "Choppa",
+						"points": 0,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Big Choppa",
+						"points": 5,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Power Klaw",
+						"points": 25,
+						"requireChooseOneKey": "a"
+					},
+					{
+						"name": "Slugga",
+						"points": 0,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shoota/Rokkit Kombi-Weapon",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Shoota/Skorcha Kombi-Weapon",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+					{
+						"name": "Twin-linked Shoota",
+						"points": 5,
+						"requireChooseOneKey": "b"
+					},
+                    {
+						"name": "'Eavy Armour",
+						"points": 5
+					},
+                    {
+						"name": "Waaagh! Banner",
+						"points": 15
+					},
+                    {
+						"name": "Bosspole",
+						"points": 5
+					},
+                    {
+						"name": "Ammo Runt",
+						"points": 3
+					}
+				]
+			}
+        ],
+		"transports": [
+			{
+				"name": "Trukk",
+				"points": 35,
+				"factions": [
+					"Orks"
+				],
+				"bs": 2,
+				"front": 10,
+				"side": 10,
+				"rear": 10,
+				"specialRules": [
+					"Ramshackle"
+				],
+				"wargear": [
+					"Big shoota"
+				],
+				"options": [
+					{
+						"name": "Big Shoota",
+						"points": 0,
+                        "requireChooseOneKey": "a"
+					},
+                    {
+						"name": "Rokkit Launcha",
+						"points": 5,
+                        "requireChooseOneKey": "a"
+					},
+					{
+						"name": "Red Paint Job",
+						"points": 5
+					},
+					{
+						"name": "Grot Riggers",
+						"points": 5
+					},
+					{
+						"name": "Stikkbomb Chukka",
+						"points": 5
+					},
+					{
+						"name": "Armour Plates",
+						"points": 10
+					},
+					{
+						"name": "Boarding Plank",
+						"points": 5
+					},
+					{
+						"name": "Wreckin' Ball",
+						"points": 10
+					},
+					{
+						"name": "Reinforced Ram",
+						"points": 5
+					}
+				]
+			},
+			{
+				"name": "Battlewagon",
+				"points": 90,
+                "availableIn":[
+                    "Nobz"                    
+                ],
+				"unlimited": true,
+				"bs": 2,
+				"front": 14,
+				"side": 12,
+				"rear": 10,
+				"wargear": [],
+				"specialRules": [],
+				"options": [
+					{
+						"name": "killkannon",
+						"points": 60,
+						"unavailableIn": "Nobz"
+					},
+					{
+						"name": "'ard case",
+						"points": 15
+					},
+					{
+						"name": "deff rolla",
+						"points": 20,
+						"unavailableWithLocal": "reinforced ram"
+					},
+					{
+						"name": "red paint job",
+						"points": 5
+					},
+					{
+						"name": "grot riggers",
+						"points": 5
+					},
+					{
+						"name": "stikkbomb chukka",
+						"points": 5
+					},
+					{
+						"name": "armour plates",
+						"points": 10
+					},
+					{
+						"name": "boarding plank",
+						"points": 5
+					},
+					{
+						"name": "wreckin' ball",
+						"points": 10
+					},
+					{
+						"name": "grabbin' klaw",
+						"points": 5
+					},
+					{
+						"name": "reinforced ram",
+						"points": 5,
+						"unavailableWithLocal": "deff rolla"
+					},
+					{
+						"name": "kannon",
+						"points": 10,
+						"chooseOneKey": "a"
+					},
+					{
+						"name": "lobba",
+						"points": 15,
+						"chooseOneKey": "a"
+					},
+					{
+						"name": "zzap gun",
+						"points": 15,
+						"chooseOneKey": "a"
+					},
+					{
+						"name": "big shoota",
+						"points": 5,
+						"increment": true,
+						"max": 4
+					},
+					{
+						"name": "rokkit launchas",
+						"points": 10,
+						"increment": true,
+						"max": 4
+					}
+				]
+			}
+		],
+		"gear": [
+			{
+				"name": "'Eavy Armour",
+				"definition": "4+ armour save.",
+                "modifiesStats": [
+                    {
+                        "stat": "Sv",
+                        "modifier": -2
+                    }
+                ]
+			},
+            {
+                "name": "Slugga and Choppa",
+                "includes": [
+                    {
+                        "name": "Slugga",
+                        "dataSource": "gear"
+                    },
+                    {
+                        "name": "Choppa",
+                        "dataSource": "gear"
+                    }
+
+                ]
+            },
+			{
+				"name": "Big Choppa",
+				"definition": "+2 Strength"
+			},
+			{
+				"name": "Big Shoota",
+				"definition": "A big shoota is a loud, heavy, large-calibre machine gun that bucks and sparks like crazy when the trigger is pulled. It has the following profile: Range 36\", Str 5, AP 5, Notes Assault 3"
+			},
+			{
+				"name": "Choppa",
+				"definition": "A Choppa is a Close Combat Weapon."
+			},
+            {
+				"name": "Slugga",
+				"definition": "Range 12\", S4, AP6, Pistol"
+			},
+			{
+				"name": "Kombi-weapons",
+				"definition": "The shoota half of the kombi-weapon can be fired normally, but the other half of the weapon may only be used once per battle. They may not be fired at the same time."
+			},
+			{
+				"name": "Kustom Mega-Blasta",
+				"definition": "Range 24\", S8, AP2, Assault 1 Gets Hot!"
+			},
+			{
+				"name": "Power Klaw",
+				"definition": "Power Fist"
+			},
+			{
+				"name": "Rokkit Launcha",
+				"definition": "Range 24\", S8, AP3, Assault 1"
+			},
+			{
+				"name": "Skorcha",
+				"definition": "Range Template, S5, AP4, Assault 1"
+			},
+			{
+				"name": "deff rolla",
+				"definition": "A Battlewagon with a deff rolla may re-roll Dangerous Terrain tests. Any Tank Shock made by a Battlewagon with a deff rolla causes D6 Strength 10 hits on the victim unit. If the unit elects to make a Death or Glory attack, it takes a further D6 Strength 10 hits in addition to the usual effects."
+			},
+			{
+				"name": "killkannon",
+				"definition": "24\" range, S7, AP3, Ordnance 1, Large Blast"
+			}
+		],
+		"keywords": [
+			{
+				"name": "Furious Charge",
+				"definition": "Models with this skill are known for the wild ferocity of their assaults. In a turn in which they assaulted into combat they add +1 to both their Initiative and Strength characteristics when attacking in close combat (note that this has no effect on the Initiative tests for sweeping advances)"
+			},
+			{
+				"name": "Ramshackle",
+				"definition": "If a Trukk suffers a Vehicle Destroyed! or Vehicle Explodes! (wrecked) result, roll on the Ramshackle table below and apply the result instead of the usual effects. If the Trukk suffers more than one Vehicle Destroyed! or Vehicle Explodes! result, roll one dice per result on the Ramshackle table, but only apply the lowest dice roll.\n        1-2: Kaboom! The Trukk is desetroyed. All passengers and models within D6\" take a Strength 3 hit. Surviving passengers must disembark and take a Pinning test.\n        3-4: Kareen! Move the Trukk 3D6\" as far as possible in a random direction (the Ork player chooses if he rolls a Hit on the Scatter dice). Then apply the Kaboom! result above. If the Trukk would carren into enemy models or terrain, stop it 1\" away.\n        5-6: Kerrunch! The Ork passengers take no damage but must immediately disembark. The Trukk is then wrecked."
+			},
+			{
+				"name": "Waaagh!",
+				"definition": "Once per game, the Ork player can declare a Waaagh! during his Shooting phase. This may not normally be declared on the first turn as a proper Waaagh! needs some momentum behind it. For the duration of that turn, all friendly Ork infantry units have the 'fleet of foot' rule (not Gretchin units, they're far too weedy for a proper Waaagh!).\n        If a unit rolls a 1 when making this Waaagh! movement, the Orks start fighting before they get to the enemy. One model from that unit takes a single wound. Note that the unit may still move an inch, and assault as normal."
+			},
+			{
+				"name": "Mob Rule!",
+				"definition": "Ork mobs may always choose to substitute the number of Orks in their mob for their normal Leadership value. If an Ork mob numbers 11 or more models, it has the Fearless special rule."
+			}
+		]
+	}
+}
